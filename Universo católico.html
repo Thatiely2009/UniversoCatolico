@@ -1,0 +1,2171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universo Católico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+        * {
+            image-orientation: from-image;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f3d6f;
+            --primary-light: #1a5aa3;
+            --primary-dark: #0a2847;
+            --accent: #d4af37;
+            --accent-light: #e8c547;
+            --success: #2ecc71;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef8 100%);
+            min-height: 100vh;
+        }
+
+        /* HEADER STYLES */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            color: var(--bg-white);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(8, 21, 52, 0.96) 0%, rgba(11, 31, 75, 0.88) 55%, rgba(8, 21, 52, 0.94) 100%),
+                url('Capa site 2.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.4), var(--shadow-lg), 0 10px 80px rgba(15, 61, 111, 0.28);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.14) 0%, transparent 22%),
+                radial-gradient(circle at 70% 15%, rgba(212, 175, 55, 0.12) 0%, transparent 18%),
+                linear-gradient(180deg, rgba(5, 12, 33, 0.4) 0%, rgba(5, 12, 33, 0.18) 35%, rgba(5, 12, 33, 0.75) 100%);
+            pointer-events: none;
+            mix-blend-mode: screen;
+            opacity: 0.95;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: float 18s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(28px) translateX(8px); }
+        }
+
+        .hero-nav {
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            padding: 10px 14px;
+            backdrop-filter: blur(12px);
+            background: rgba(11, 31, 75, 0.24);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+        }
+
+        .hero-nav a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.958em;
+            padding: 10px 16px;
+            border-radius: 999px;
+            transition: all 0.25s ease;
+            border: 1px solid transparent;
+        }
+
+        .hero-nav a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.14);
+            transform: translateY(-1px);
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            width: min(1120px, 100%);
+            padding: 80px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5.8rem);
+            line-height: 0.98;
+            letter-spacing: -0.9px;
+            margin-bottom: 24px;
+            color: #ffffff;
+            text-shadow: 0 20px 40px rgba(0, 0, 0, 0.45), 0 0 35px rgba(212, 175, 55, 0.18);
+            animation: heroTitle 1.1s ease-out both;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes heroTitle {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 16px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, transparent 66%);
+            filter: blur(10px);
+            opacity: 0.7;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.2vw, 1.35rem);
+            font-weight: 300;
+            line-height: 1.95;
+            max-width: 760px;
+            margin-top: 18px;
+            color: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(12px);
+            border-radius: 22px;
+            padding: 24px 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
+            animation: slideUp 1s ease-out 0.15s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 42px;
+            animation: slideUp 1s ease-out 0.25s both;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 28px;
+            min-width: 170px;
+            border-radius: 999px;
+            font-size: 0.95em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.11em;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.22);
+            box-shadow: 0 22px 50px rgba(0, 0, 0, 0.24);
+        }
+
+        .hero-button span {
+            margin-left: 10px;
+        }
+
+        .header-images {
+            display: none;
+        }
+
+        .header-images img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: var(--shadow-lg), 0 0 50px rgba(212, 175, 55, 0.25);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            animation: fadeInScale 1s ease-out 0.3s both;
+        }
+
+        .header-images img:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-lg), 0 0 70px rgba(212, 175, 55, 0.35);
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 70px 20px;
+        }
+
+        /* SECTIONS */
+        section {
+            background: var(--bg-white);
+            margin-bottom: 48px;
+            padding: 60px;
+            border-radius: 14px;
+            box-shadow: var(--shadow-md);
+            border-top: 4px solid var(--accent);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            animation: fadeInUp 0.6s ease-out;
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        section:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HEADINGS */
+        h2 {
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4em;
+            margin-bottom: 28px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), rgba(212, 175, 55, 0.5));
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: var(--primary);
+            font-size: 1.55em;
+            margin-top: 36px;
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: var(--primary);
+            font-size: 1.2em;
+            margin-top: 22px;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 22px;
+            text-align: justify;
+            color: var(--text-light);
+            line-height: 1.85;
+            font-size: 1.02em;
+        }
+
+        /* IMAGES */
+        .section-image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 42px 0;
+            gap: 16px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .section-image img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 14px;
+            box-shadow: var(--shadow-md), 0 0 40px rgba(212, 175, 55, 0.15);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .section-image img:hover {
+            transform: scale(1.04);
+            box-shadow: var(--shadow-lg), 0 0 60px rgba(212, 175, 55, 0.25);
+        }
+
+        .section-image figcaption {
+            font-size: 0.95em;
+            color: var(--text-light);
+            text-align: center;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        /* LISTS */
+        ul,
+        ol {
+            margin-left: 32px;
+            margin-bottom: 24px;
+        }
+
+        li {
+            margin-bottom: 14px;
+            color: var(--text-light);
+            line-height: 1.85;
+        }
+
+        ul li::marker {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        ol li::marker {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* CARDS */
+        .presbiterio-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .presbiterio-card {
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+            border: 1px solid var(--border-color);
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .presbiterio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .presbiterio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg), 0 0 30px rgba(212, 175, 55, 0.2);
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, var(--bg-white) 100%);
+        }
+
+        .presbiterio-card:hover::before {
+            opacity: 1;
+        }
+
+        .presbiterio-card strong {
+            display: block;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .presbiterio-card p {
+            font-size: 0.95em;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* QUESTION BOXES */
+        .question {
+            background: linear-gradient(135deg, rgba(15, 61, 111, 0.05) 0%, rgba(212, 175, 55, 0.08) 100%);
+            border-left: 4px solid var(--primary);
+            padding: 24px 26px;
+            margin: 28px 0;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .question::before {
+            content: '';
+            position: absolute;
+            right: -30px;
+            top: -30px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .question:hover {
+            background: linear-gradient(135deg, rgba(15, 61, 111, 0.08) 0%, rgba(212, 175, 55, 0.12) 100%);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transform: translateX(4px);
+        }
+
+        .question strong {
+            color: var(--primary);
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .question p {
+            margin: 10px 0 0 0;
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* TOPICS SECTION */
+        .topics-section {
+            background: linear-gradient(135deg, rgba(15, 61, 111, 0.05) 0%, rgba(212, 175, 55, 0.03) 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topics-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .topics-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(15, 61, 111, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .topics-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .topics-title {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .topics-title h2 {
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .topics-title p {
+            color: var(--text-light);
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .topic-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 32px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(212, 175, 55, 0.06) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .topic-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.18) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-14px) scale(1.02);
+            box-shadow: 
+                var(--shadow-lg), 
+                0 0 40px rgba(212, 175, 55, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border-color: var(--accent);
+        }
+
+        .topic-card:hover::before,
+        .topic-card:hover::after {
+            opacity: 1;
+        }
+
+        .topic-icon {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent) 0%, #e8c547 100%);
+            border-radius: 14px;
+            transition: all 0.4s ease;
+            box-shadow: 
+                0 8px 24px rgba(212, 175, 55, 0.35),
+                0 0 20px rgba(212, 175, 55, 0.2);
+            font-size: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .topic-card:hover .topic-icon {
+            transform: scale(1.2) rotateZ(-8deg);
+            box-shadow: 
+                0 12px 32px rgba(212, 175, 55, 0.45),
+                0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .topic-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            transition: color 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .topic-card:hover .topic-label {
+            color: var(--accent);
+        }
+
+        .topic-description {
+            font-size: 0.9em;
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        .topic-arrow {
+            display: inline-block;
+            margin-top: 12px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            font-size: 1.2em;
+            color: var(--accent);
+            opacity: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .topic-card:hover .topic-arrow {
+            opacity: 1;
+            transform: translateX(6px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE TOPICS */
+        @media (max-width: 768px) {
+            .topics-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 16px;
+            }
+
+            .topics-title h2 {
+                font-size: 1.8em;
+            }
+
+            .topic-card {
+                padding: 24px 16px;
+            }
+
+            .topics-section {
+                padding: 50px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .topics-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .topics-title h2 {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+
+            .topics-title p {
+                font-size: 0.95em;
+            }
+
+            .topic-card {
+                padding: 20px 14px;
+            }
+
+            .topic-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 24px;
+            }
+
+            .topic-label {
+                font-size: 1.1em;
+            }
+
+            .topics-section {
+                padding: 40px 15px;
+            }
+        }
+
+        
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--bg-white);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            margin-top: 80px;
+            font-size: 0.95em;
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        footer p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            font-size: 1em;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.4em;
+                margin-bottom: 12px;
+            }
+
+            header p {
+                font-size: 1.1em;
+                padding: 24px 28px;
+                margin-top: 24px;
+            }
+
+            header {
+                padding: 50px 20px 40px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+                margin-bottom: 18px;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            section {
+                padding: 30px 20px;
+                margin-bottom: 30px;
+            }
+
+            .header-images {
+                gap: 16px;
+                margin-top: 30px;
+            }
+
+            .presbiterio-list {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .topics-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 16px;
+            }
+
+            .topics-title h2 {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.9em;
+                letter-spacing: -0.3px;
+            }
+
+            header p {
+                font-size: 0.95em;
+                padding: 20px 20px;
+                margin-top: 18px;
+            }
+
+            header {
+                padding: 30px 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 14px;
+            }
+
+            h3 {
+                font-size: 1.15em;
+                margin-top: 20px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            p {
+                text-align: left;
+                font-size: 0.95em;
+            }
+
+            ul,
+            ol {
+                margin-left: 20px;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .topics-title h2 {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+
+            .topics-title p {
+                font-size: 0.95em;
+            }
+
+            .topic-card {
+                padding: 20px 14px;
+            }
+
+            .topic-icon {
+                width: 56px;
+                height: 56px;
+                font-size: 24px;
+            }
+
+            .topic-label {
+                font-size: 1.1em;
+            }
+
+            .topics-section {
+                padding: 40px 15px;
+            }
+        }
+
+        /* Mobile and tablet responsive improvements */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .hero-nav {
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 14px;
+        }
+
+        .hero-nav a {
+            flex: 1 1 140px;
+            min-width: 110px;
+            text-align: center;
+            white-space: normal;
+            padding: 10px 14px;
+            font-size: 0.85em;
+        }
+
+        .hero-buttons {
+            width: 100%;
+            max-width: 780px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        .hero-button {
+            min-width: 0;
+            white-space: normal;
+        }
+
+        .section-image {
+            width: 100%;
+            margin: 32px 0;
+        }
+
+        .section-image img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .topic-card {
+            min-height: auto;
+        }
+
+        .question,
+        .presbiterio-card,
+        .section {
+            word-wrap: break-word;
+        }
+
+        @supports (scrollbar-color: auto) {
+            * {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(212, 175, 55, 0.45) rgba(11, 31, 75, 0.1);
+            }
+        }
+
+        body::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: rgba(11, 31, 75, 0.08);
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.42);
+            border-radius: 999px;
+            border: 3px solid rgba(15, 61, 111, 0.18);
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: rgba(212, 175, 55, 0.58);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="hero-nav">
+            <a href="#igreja">Igreja</a>
+            <a href="#sacramentos">Sacramentos</a>
+            <a href="#santos">Santos</a>
+            <a href="#tradicao">Tradição</a>
+            <a href="#catecismo">Catecismo</a>
+        </nav>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Universo Católico</h1>
+            <p class="hero-subtitle">Tradição apostólica, liturgia e sacramentos da fé católica</p>
+            <div class="hero-buttons">
+                <a href="#santos" class="hero-button">Santos</a>
+                <a href="#catecismo" class="hero-button">Catecismo – Doutrina e mandamentos</a>
+                <a href="#oracoes" class="hero-button">Orações</a>
+                <a href="#nossasenhora" class="hero-button">Nossa Senhora e aparições</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- TOPICS SECTION -->
+    <section class="topics-section">
+        <div class="topics-container">
+            <div class="topics-title">
+                <h2>Explore os Pilares da Fé</h2>
+                <p>Navegue pelos principais tópicos da doutrina católica</p>
+            </div>
+            <div class="topics-grid">
+                <a href="#liturgia" class="topic-card" style="text-decoration: none; color: inherit;">
+                    <div class="topic-icon">⛪</div>
+                    <div class="topic-label">Liturgia</div>
+                    <div class="topic-description">Celebrações e rituais sagrados</div>
+                    <div class="topic-arrow">→</div>
+                </a>
+
+                <a href="#sacramentos" class="topic-card" style="text-decoration: none; color: inherit;">
+                    <div class="topic-icon">✨</div>
+                    <div class="topic-label">Sacramentos</div>
+                    <div class="topic-description">Sinais da graça divina</div>
+                    <div class="topic-arrow">→</div>
+                </a>
+
+                <a href="#santos" class="topic-card" style="text-decoration: none; color: inherit;">
+                    <div class="topic-icon">👼</div>
+                    <div class="topic-label">Santos</div>
+                    <div class="topic-description">Exemplos de fé e devoção</div>
+                    <div class="topic-arrow">→</div>
+                </a>
+
+                <a href="#tradicao" class="topic-card" style="text-decoration: none; color: inherit;">
+                    <div class="topic-icon">📖</div>
+                    <div class="topic-label">Tradição Apostólica</div>
+                    <div class="topic-description">Herança dos apóstolos</div>
+                    <div class="topic-arrow">→</div>
+                </a>
+
+                <a href="#catecismo" class="topic-card" style="text-decoration: none; color: inherit;">
+                    <div class="topic-icon">📚</div>
+                    <div class="topic-label">Catecismo</div>
+                    <div class="topic-description">Doutrina da Igreja</div>
+                    <div class="topic-arrow">→</div>
+                </a>
+
+                <a href="#oracoes" class="topic-card" style="text-decoration: none; color: inherit;">
+                    <div class="topic-icon">🙏</div>
+                    <div class="topic-label">Orações</div>
+                    <div class="topic-description">Diálogo com Deus</div>
+                    <div class="topic-arrow">→</div>
+                </a>
+
+                <a href="#liturgia" class="topic-card" style="text-decoration: none; color: inherit;">
+                    <div class="topic-icon">✝️</div>
+                    <div class="topic-label">Liturgia e Eucaristia</div>
+                    <div class="topic-description">Celebrando a presença real de Cristo</div>
+                    <div class="topic-arrow">→</div>
+                </a>
+
+                <a href="#historia" class="topic-card" style="text-decoration: none; color: inherit;">
+                    <div class="topic-icon">🕰️</div>
+                    <div class="topic-label">História da Igreja</div>
+                    <div class="topic-description">Dois mil anos de missão</div>
+                    <div class="topic-arrow">→</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+        <section id="igreja">
+            <h2>O que é a Igreja Católica</h2>
+            <div class="section-image">
+                <figure>
+                    <img src="interior, altar igreja catolica.jpg" alt="Interior do altar da Igreja Católica">
+                    <figcaption>A Igreja Católica em sua essência</figcaption>
+                </figure>
+            </div>
+            <p>A Igreja Católica é a comunidade fundada por Jesus Cristo sobre São Pedro. Ela preserva a fé apostólica
+                recebida dos apóstolos e vive a sua missão através da liturgia, dos sacramentos e da oração.</p>
+
+            <p>O primeiro líder da Igreja foi São Pedro, escolhido pelo próprio Jesus. Desde então, a Igreja continua
+                sua missão na sucessão apostólica dos papas, bispos e sacerdotes.</p>
+
+            <p>A Igreja não é apenas um templo — é o Corpo de Cristo reunido no sacrifício da Eucaristia, na tradição
+                viva e na comunhão dos fiéis.</p>
+        </section>
+
+        <section>
+            <h2>Deus - Pai, Criador do Universo</h2>
+            <p>Deus é o ser supremo, infinito, eterno e todopoderoso. Ele é o criador de tudo que existe - do universo,
+                da natureza e de todas as pessoas.</p>
+            <p><strong>Atributos de Deus:</strong></p>
+            <ul>
+                <li><strong>Onipotente:</strong> Todo-poderoso, pode fazer tudo</li>
+                <li><strong>Onisciente:</strong> Conhece tudo, passado, presente e futuro</li>
+                <li><strong>Onipresente:</strong> Está em todos os lugares ao mesmo tempo</li>
+                <li><strong>Eterno:</strong> Não tem começo nem fim</li>
+                <li><strong>Perfeito:</strong> Sem falhas, imperfeições ou pecado</li>
+                <li><strong>Benevolente:</strong> Bom, amoroso e misericordioso</li>
+                <li><strong>Justo:</strong> Premia o bem e pune o mal</li>
+            </ul>
+            <p><strong>Deus e o Amor:</strong> Na Bíblia, está escrito que "Deus é amor". Ele ama profundamente toda a
+                humanidade e deseja nossa salvação e felicidade.</p>
+        </section>
+
+        <section>
+            <h2>A Santíssima Trindade</h2>
+               <div class="section-image">
+                <figure>
+                    <img src="Trindade santa.jpg" alt="Trindade santa">
+                </figure>
+            </div>
+            <p>A Trindade é um dos mistérios mais profundos da fé católica. Significa que Deus é <strong>Um em três
+                    pessoas</strong> (Uma substância, três pessoas distintas):</p>
+
+            <h3>As Três Pessoas da Trindade:</h3>
+
+            <h4 style="color: #800000;">1. Deus Pai</h4>
+            <p>O criador de todas as coisas. É o Pai celestial que nos ama e nos cuida. Representa a onipotência e a
+                autoridade divina.</p>
+
+            <h4 style="color: #800000;">2. Deus Filho (Jesus Cristo)</h4>
+            <p>É Deus encarnado em forma humana. Jesus é o Filho de Deus que veio à terra para salvar a humanidade
+                através de sua morte e ressurreição.</p>
+
+            <h4 style="color: #800000;">3. Deus Espírito Santo</h4>
+            <p>É o amor e a graça de Deus que vive nos corações dos fiéis. Guia, inspira e fortalece os cristãos na
+                jornada de fé.</p>
+
+            <h3>Como Entender a Trindade?</h3>
+            <p>É um mistério que não pode ser totalmente compreendido pela razão humana. Algumas comparações ajudam:</p>
+            <ul>
+                <li><strong>A água:</strong> Pode ser gelo (sólido), água (líquido) e vapor (gás) - mas é sempre H₂O
+                </li>
+                <li><strong>A luz do sol:</strong> É uma, mas tem três propriedades: calor, luz e energia</li>
+                <li><strong>Um ser humano:</strong> É uma pessoa, mas tem corpo, alma e espírito</li>
+            </ul>
+            <p>Da mesma forma, Deus é Um, mas existe em três pessoas distintas que trabalham juntas em perfeita
+                harmonia.</p>
+        </section>
+
+        <section>
+            <h2>Jesus Cristo - O Filho de Deus</h2>
+            <div class="section-image">
+                <figure>
+                    <img src="igreja-catc3b3lica.jpg" alt="Igreja Católica">
+
+                </figure>
+            </div>
+            <h3>Quem é Jesus?</h3>
+            <p>Jesus Cristo é o Filho de Deus encarnado. Ele é verdadeiro Deus e verdadeiro homem. Nasceu de Maria
+                Virgem há aproximadamente 2026 anos.</p>
+
+            <h3>A Vida de Jesus</h3>
+            <p><strong>Nascimento:</strong> Nasceu em Belém de pais humildes (Maria e José). Sua vinda era esperada há
+                séculos pelos profetas do Antigo Testamento.</p>
+            <p><strong>Ministério:</strong> Aos 30 anos, começou seu ministério público pregando sobre o Reino de Deus,
+                realizando milagres e ensinando valores como amor ao próximo, perdão e compaixão.</p>
+            <p><strong>Apóstolos:</strong> Escolheu 12 apóstolos (discípulos) para ajudá-lo a difundir suas mensagens.
+            </p>
+
+            <h3>Os Milagres de Jesus</h3>
+            <p>Jesus realizou muitos milagres que comprovam sua divindade:</p>
+            <ul>
+                <li>Transformar água em vinho (Casamento de Caná)</li>
+                <li>Multiplicar pães e peixes para alimentar multidões</li>
+                <li>Curar doentes (cegos, paralíticos, leprosos)</li>
+                <li>Ressuscitar mortos (Lázaro)</li>
+                <li>Acalmar a tempestade</li>
+                <li>Expulsar demônios</li>
+            </ul>
+
+            <h3>A Paixão, Morte e Ressurreição</h3>
+            <p><strong>Paixão:</strong> Jesus foi preso, julgado injustamente e condenado à morte pelo governador Pôncio
+                Pilatos.</p>
+            <p><strong>Morte:</strong> Foi crucificado no Calvário (Gólgota) como sacrifício pelos pecados de toda a
+                humanidade. "Porque Deus amou o mundo de tal forma que deu o seu Filho unigênito, para que todo aquele
+                que nele crê não pereça, mas tenha a vida eterna."</p>
+            <p><strong>Ressurreição:</strong> No terceiro dia após sua morte, Jesus ressuscitou dos mortos, vencendo o
+                pecado e a morte. É a base da esperança cristã.</p>
+            <p><strong>Ascensão:</strong> Quarenta dias após a ressurreição, Jesus subiu aos céus e está sentado à
+                direita de Deus Pai.</p>
+
+            <h3>Por Que Jesus Morreu?</h3>
+            <p>Jesus morreu para salvar a humanidade do pecado. Seu sacrifício na cruz é o ato de amor supremo. Pela sua
+                morte e ressurreição, todo aquele que acredita nele é perdoado e pode ter vida eterna.</p>
+
+            <h3>Jesus Hoje</h3>
+            <p>Jesus está vivo nos céus. Está presente:</p>
+            <ul>
+                <li>Na Eucaristia (o Corpo e Sangue de Cristo)</li>
+                <li>Na Igreja através de seus membros</li>
+                <li>No coração dos fiéis através do Espírito Santo</li>
+                <li>Na Palavra de Deus (Bíblia)</li>
+            </ul>
+        </section>
+
+        <section id="catecismo">
+            <h2>Os 10 Mandamentos</h2>
+            <div class="section-image">
+                <figure>
+
+
+                </figure>
+            </div>
+            <p>Os Dez Mandamentos são as leis divinas dados por Deus a Moisés no Monte Sinai. São a base da moral
+                católica e ensinam como viver dignamente.</p>
+
+            <h3>Os 10 Mandamentos da Lei de Deus:</h3>
+
+            <ol style="color: #2b1b13; line-height: 2;">
+                <li><strong>Amar a Deus sobre todas as coisas</strong> - Deus deve estar em primeiro lugar em nossas
+                    vidas</li>
+                <li><strong>Não tomar o nome de Deus em vão</strong> - Respeitar o nome de Deus, não usar em maldições
+                    ou juras falsas</li>
+                <li><strong>Guardar domingos e festas de guarda</strong> - Participar da Missa no domingo e honrar Deus
+                </li>
+                <li><strong>Honrar pai e mãe</strong> - Respeitar e cuidar dos pais</li>
+                <li><strong>Não matar</strong> - Respeitar a vida humana, não prejudicar ninguém</li>
+                <li><strong>Não cometer adultério</strong> - Ser fiel no casamento</li>
+                <li><strong>Não roubar</strong> - Respeitar a propriedade alheia</li>
+                <li><strong>Não dar falso testemunho</strong> - Não mentir, especialmente em juízo</li>
+                <li><strong>Não cobiçar a mulher do próximo</strong> - Não desejar o cônjuge de outro</li>
+                <li><strong>Não cobiçar os bens alheios</strong> - Não invejar o que os outros têm</li>
+            </ol>
+
+            <h3>Resumo dos Mandamentos</h3>
+            <p>Jesus resumiu os 10 Mandamentos em dois grandes mandamentos:</p>
+            <ul>
+                <li><strong>Amar a Deus com todo coração, alma e mente</strong> (Primeiros 3 Mandamentos)</li>
+                <li><strong>Amar o próximo como a si mesmo</strong> (Últimos 7 Mandamentos)</li>
+            </ul>
+            <p>Estes dois mandamentos contêm toda a Lei e os Profetas.</p>
+        </section>
+
+        <section id="oracoes">
+            <h2>O Rosário - Oração Poderosa</h2>
+
+
+            <h3>O que é o Rosário?</h3>
+            <p>O Rosário é uma forma de oração muitíssimo venerada na Igreja Católica. É ao mesmo tempo uma meditação e
+                uma súplica. Através dele, os fiéis contemplam os principais mistérios da vida de Jesus e de Maria.</p>
+
+            <h3>Como o Rosário é Composto?</h3>
+            <p>O Rosário é composto por vinte mistérios que contemplam os principais acontecimentos da vida de Jesus Cristo e da Virgem Maria. Esses mistérios são divididos em quatro grupos: Gozosos, Luminosos, Dolorosos e Gloriosos, cada um com cinco mistérios. A oração é rezada por meio de dezenas formadas por um Pai-Nosso, dez Ave-Marias e um Glória ao Pai, conduzindo os fiéis à meditação, à oração e ao aprofundamento da fé cristã.
+</p>
+
+            <h4 style="color: #800000;">1. Mistérios Gozosos (Alegres)</h4>
+            <p>Meditam sobre a alegria da encarnação e infância de Jesus:</p>
+            <ul>
+                <li>A Anunciação (anjo anuncia que Maria terá um filho)</li>
+                <li>A Visitação (Maria visita sua prima Isabel)</li>
+                <li>O Nascimento de Jesus</li>
+                <li>A Apresentação de Jesus no templo</li>
+                <li>O Menino Jesus no templo</li>
+            </ul>
+
+            <h4 style="color: #800000;">2. Mistérios Luminosos (da Luz)</h4>
+            <p>Meditam sobre o ministério público de Jesus:</p>
+            <ul>
+                <li>O Batismo de Jesus</li>
+                <li>A Manifestação de Jesus em Caná</li>
+                <li>O Anúncio do Reino de Deus</li>
+                <li>A Transfiguração de Jesus</li>
+                <li>A Instituição da Eucaristia</li>
+            </ul>
+
+            <h4 style="color: #800000;">3. Mistérios Dolorosos</h4>
+            <p>Meditam sobre o sofrimento de Jesus:</p>
+            <ul>
+                <li>A Agonia de Jesus no Horto</li>
+                <li>A Flagelação de Jesus</li>
+                <li>A Coroação de Espinhos</li>
+                <li>A Crucificação de Jesus</li>
+                <li>O Ressurreição de Jesus</li>
+            </ul>
+
+            <h4 style="color: #800000;">4. Mistérios Gloriosos</h4>
+            <p>Meditam sobre a glória de Jesus e Maria:</p>
+            <ul>
+                <li>A Ressurreição de Jesus</li>
+                <li>A Ascensão de Jesus</li>
+                <li>A Descida do Espírito Santo (Pentecostes)</li>
+                <li>A Assunção de Maria</li>
+                <li>A Coroação de Maria Rainha do Céu</li>
+            </ul>
+
+            <h3>Como Rezar o Rosário</h3>
+            <p>Reza-se o Rosário com um terço (colar com contas). O processo é:</p>
+            <ul>
+                <li>Comece com o sinal da cruz</li>
+                <li>Reze o Credo dos Apóstolos</li>
+                <li>Reze um Pai-Nosso</li>
+                <li>Reze três Ave-Marias (pela fé, esperança e caridade)</li>
+                <li>Reze um Glória ao Pai</li>
+                <li>Anuncia o primeiro mistério e reze um Pai-Nosso</li>
+                <li>Reze 10 Ave-Marias meditando no mistério</li>
+                <li>Reze um Glória ao Pai</li>
+                <li>Repita para cada um dos 5 mistérios</li>
+                <li>Termine com orações de encerramento</li>
+            </ul>
+
+            <h3>Por Que Rezar o Rosário?</h3>
+            <ul>
+                <li>Fortalece a devoção a Maria</li>
+                <li>Medita sobre a vida de Jesus</li>
+                <li>Traz paz e consolo espiritual</li>
+                <li>Busca a intercessão de Maria</li>
+                <li>Combate o mal espiritual</li>
+                <li>Une toda a comunidade cristã</li>
+            </ul>
+
+            <h3>Promessas do Rosário</h3>
+            <p>A Igreja ensina que rezar o Rosário com fé traz muitas graças, entre elas:</p>
+            <ul>
+                <li>Proteção contra o mal</li>
+                <li>Cura de doenças</li>
+                <li>Conversão de pecadores</li>
+                <li>Paz nas famílias</li>
+                <li>Salvação da alma</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Meditação e Contemplação</h2>
+
+            <h3>O que é Meditação Cristã?</h3>
+            <p>Meditação é uma forma profunda de oração em que a pessoa se retira do mundo, silencia a mente e busca
+                encontrar a presença de Deus. É diferente da meditação oriental - é centrada em Cristo e em sua Palavra.
+            </p>
+
+            <h3>Diferença Entre Meditação e Contemplação</h3>
+            <p><strong>Meditação:</strong> É um ato ativo da mente. Você pensa, reflete e pondera sobre as palavras de
+                Deus, buscando compreendê-las e aplicá-las em sua vida.</p>
+            <p><strong>Contemplação:</strong> É um ato passivo. Você simplesmente permanece silenciosamente na presença
+                de Deus, sem pensar ou raciocinar, apenas descansando em sua presença.</p>
+
+            <h3>Tipos de Meditação Cristã</h3>
+
+            <h4 style="color: #800000;">1. Lectio Divina (Leitura Divina)</h4>
+            <p>É uma forma antiga de meditação que segue 4 passos:</p>
+            <ul>
+                <li><strong>Lectio:</strong> Ler lentamente um trecho da Bíblia</li>
+                <li><strong>Meditatio:</strong> Refletir e meditar sobre o que foi lido</li>
+                <li><strong>Oratio:</strong> Orar, respondendo a Deus com suas próprias palavras</li>
+                <li><strong>Contemplatio:</strong> Descansar silenciosamente na presença de Deus</li>
+            </ul>
+
+            <h4 style="color: #800000;">2. Meditação sobre os Mistérios</h4>
+            <p>Meditar sobre os eventos da vida de Jesus (como no Rosário) visualizando a cena e como você estaria
+                presente nela.</p>
+
+            <h4 style="color: #800000;">3. Oração Centrada em Deus (Contemplative Prayer)</h4>
+            <p>Repetir uma palavra sagrada (como "Jesus", "Paz" ou "Amor") enquanto descansa na presença de Deus.</p>
+
+            <h3>Como Praticar a Meditação Cristã</h3>
+
+            <p><strong>Preparação:</strong></p>
+            <ul>
+                <li>Escolha um lugar tranquilo e silencioso</li>
+                <li>Sente-se confortavelmente</li>
+                <li>Faça o sinal da cruz</li>
+                <li>Peça ao Espírito Santo para guiar sua oração</li>
+            </ul>
+
+            <p><strong>Meditação:</strong></p>
+            <ul>
+                <li>Leia lentamente um trecho da Bíblia</li>
+                <li>Reflita sobre o significado das palavras</li>
+                <li>Pergunte a si mesmo: "O que Deus quer me ensinar?"</li>
+                <li>Deixe as palavras ressoearem em seu coração</li>
+            </ul>
+
+            <p><strong>Resposta:</strong></p>
+            <ul>
+                <li>Fale com Deus em suas próprias palavras</li>
+                <li>Expresse seus sentimentos e desejos</li>
+                <li>Peça ajuda para viver o que aprendeu</li>
+                <li>Descanse silenciosamente em sua presença</li>
+            </ul>
+
+            <h3>Benefícios da Meditação Cristã</h3>
+            <ul>
+                <li>Aprofunda o conhecimento de Deus</li>
+                <li>Traz paz interior e serenidade</li>
+                <li>Fortalece a fé e a confiança em Deus</li>
+                <li>Ajuda a discernir a vontade de Deus</li>
+                <li>Transforma a vida espiritual</li>
+                <li>Cura emoções feridas</li>
+                <li>Traz alegria e esperança</li>
+            </ul>
+
+            <h3>Mestres da Meditação Cristã</h3>
+            <p>Grandes santos como Santo Inácio de Loyola, Santa Teresa de Ávila e São João da Cruz deixaram
+                ensinamentos profundos sobre meditação e contemplação que ainda guiam os cristãos hoje.</p>
+        </section>
+
+        <section id="historia">
+            <h2>História da Igreja</h2>
+            <p>A Igreja Católica teve início com a missão de Jesus Cristo e os ensinamentos transmitidos aos apóstolos, especialmente a São Pedro, considerado o primeiro papa. Após a morte e ressurreição de Jesus, os apóstolos começaram a anunciar o Evangelho pelo mundo.
+
+Nos primeiros séculos, os cristãos sofreram perseguições no Império Romano, mas permaneceram firmes na fé. No ano de 313, o imperador Constantino concedeu liberdade religiosa aos cristãos por meio do Édito de Milão.
+
+Com o passar do tempo, a Igreja cresceu, construiu comunidades, mosteiros e catedrais, levando o cristianismo para diversos povos e culturas. Durante a Idade Média, teve grande influência na educação, arte e caridade.
+
+Ao longo da história, a Igreja enfrentou desafios, divisões e reformas, mas continuou sua missão de anunciar o Evangelho, celebrar os sacramentos e ajudar os necessitados.
+
+Atualmente, a Igreja Católica está presente em praticamente todo o mundo, sendo guiada pelo papa e dedicada à fé, à paz e ao amor ao próximo.</p>
+            <p>No início, os cristãos foram perseguidos, mas mesmo assim a fé cresceu. Com o tempo, a Igreja se espalhou
+                pelo mundo.</p>
+
+            <h3>Momentos Importantes:</h3>
+            <ul>
+                <li>O crescimento do cristianismo no Império Romano</li>
+                <li>A organização da doutrina</li>
+                <li>Grandes desafios e mudanças ao longo dos séculos</li>
+            </ul>
+
+            <p>Hoje, a Igreja Católica está presente no mundo inteiro.</p>
+        </section>
+
+        <section id="santos">
+            <h2>Santa Rita de Cássia - Santa das Causas Impossíveis</h2>
+            <div class="section-image">
+                <figure>
+                    <img src="Santa Rita de Cássia.jpg" alt="Santa Rita de Cássia">
+                    <figcaption>Santa Rita de Cássia, santa das causas impossíveis</figcaption>
+                </figure>
+            </div>
+            <p>Santa Rita de Cássia foi uma santa italiana conhecida por sua fé, paciência e confiança em Deus, mesmo
+                diante de grandes sofrimentos. Viveu no século 15 e, desde jovem, sonhava em ser freira, mas não foi
+                permitida por sua família e acabou entrando em um casamento difícil.</p>
+
+            <p>Após a morte do marido e de seus filhos, conseguiu ingressar na vida religiosa. Sua vida no convento foi
+                marcada por muita oração, humildade e amor a Deus.</p>
+
+            <p>Entre os fatos e milagres associados a ela, destaca-se a tradição de que uma roseira seca teria voltado a
+                florescer por sua fé, mesmo fora de época, simbolizando esperança e vida nova. Também há relatos de que
+                cultivava e cuidava de plantas com grande dedicação, sendo associada especialmente às rosas.</p>
+
+            <p>Depois de sua morte, muitos fiéis passaram a relatar graças alcançadas por sua intercessão,
+                principalmente em causas consideradas impossíveis, o que a tornou conhecida como a "santa das causas
+                impossíveis".</p>
+
+            <p>Seu reconhecimento oficial pela Igreja ocorreu com sua canonização pelo papa Leão XIII, no ano de 1900.
+                Hoje, é muito venerada e lembrada como exemplo de fé, perseverança e confiança em Deus.</p>
+        </section>
+
+        <section>
+            <h2>Como Alguém se Torna Santo?</h2>
+            <div class="section-image">
+                <figure>
+
+                </figure>
+            </div>
+            <p><strong>Um ponto importante:</strong> Na Igreja Católica, ninguém é declarado santo em vida. O processo
+                só começa depois da morte da pessoa.</p>
+
+            <p>Durante a vida, porém, é essencial que ela tenha sido um verdadeiro exemplo de fé, amor ao próximo e
+                fidelidade a Deus. Ou seja, alguém que viveu o Evangelho de forma concreta no dia a dia.</p>
+
+            <h3>Etapas do Processo de Canonização</h3>
+            <p>Após a morte, a Igreja analisa com muito cuidado:</p>
+            <ul>
+                <li>Sua vida e suas atitudes</li>
+                <li>Seus ensinamentos e escritos</li>
+                <li>Seu testemunho cristão</li>
+                <li>A fama de santidade entre as pessoas</li>
+            </ul>
+
+            <p>Se tudo isso confirma que ela viveu de forma extraordinária, inicia-se o caminho até a santidade, que
+                passa pelas etapas:</p>
+
+            <ol style="font-weight: bold; color: #800000;">
+                <li><strong>Servo de Deus</strong> - Primeira fase do reconhecimento</li>
+                <li><strong>Venerável</strong> - A Igreja reconhece suas virtudes</li>
+                <li><strong>Beato</strong> - É beatificado, e pode ser venerado localmente</li>
+                <li><strong>Santo</strong> - É canonizado, reconhecido por toda a Igreja como santo</li>
+            </ol>
+
+            <p>Esse processo também pode envolver a confirmação de milagres atribuídos à intercessão da pessoa.</p>
+
+            <h3>Em Resumo</h3>
+            <p>Um santo não é alguém "perfeito", mas alguém que, em vida, buscou a Deus com sinceridade e foi exemplo
+                para os outros — e que, após sua morte, foi reconhecido pela Igreja por essa vida de fé.</p>
+        </section>
+
+        <section id="tradicao">
+            <h2>Nossa Senhora – Mãe de Jesus</h2>
+            <div class="section-image">
+                <figure>
+                    <img src="nossa-senhora.jpg" alt="Nossa Senhora Aparecida">
+                    <figcaption>Nossa Senhora Aparecida, padroeira do Brasil</figcaption>
+                </figure>
+            </div>
+            <p>Maria é a mãe de Jesus Cristo e possui um lugar especial no coração dos católicos. Ela é venerada como a
+                Mãe de Deus e intercessora dos fiéis. Na Igreja, Maria é chamada de <strong>Nossa Senhora</strong>.</p>
+
+            <h3>As Diferentes Manifestações de Nossa Senhora</h3>
+
+            <p>Ao longo da história, há relatos de aparições de Maria em diferentes lugares do mundo. Cada aparição tem
+                um nome especial e significado próprio:</p>
+
+            <h4 style="color: #800000; margin-top: 18px;">Nossa Senhora de Fátima (Portugal, 1917)</h4>
+            <p>Apareceu a três crianças em Fátima e pediu oração e conversão. É uma das aparições mais famosas do mundo.
+                Muitos peregrinos visitam Fátima em busca de graças e cura.</p>
+
+            <h4 style="color: #800000; margin-top: 18px;">Nossa Senhora Aparecida (Brasil, 1717)</h4>
+            <p>Padroeira do Brasil. Sua imagem foi encontrada em um rio por pescadores. É a padroeira oficial do Brasil
+                e tem grande devoção no país inteiro.</p>
+
+            <h4 style="color: #800000; margin-top: 18px;">Nossa Senhora de Lourdes (França, 1858)</h4>
+            <p>Apareceu a Santa Bernadete. O local tornou-se famoso por milagres de cura. Milhões de peregrinos visitam
+                Lourdes anualmente em busca de graças.</p>
+
+            <h4 style="color: #800000; margin-top: 18px;">Nossa Senhora de Guadalupe (México, 1531)</h4>
+            <p>Apareceu a Santo Inácio, um indígena mexicano. É muito venerada na América Latina, especialmente no
+                México. Seu santuário é um dos mais visitados do mundo.</p>
+
+            <h4 style="color: #800000; margin-top: 18px;">Nossa Senhora da Conceição</h4>
+            <p>Representa Maria sem mancha de pecado original. É celebrada no dia 8 de dezembro e é venerada em várias
+                partes do mundo, especialmente em Portugal e Brasil.</p>
+
+            <h4 style="color: #800000; margin-top: 18px;">Nossa Senhora da Abadia</h4>
+            <p>Venerada especialmente em Goiás, Brasil. É conhecida por sua intercessão nos pedidos de proteção e
+                bênção.</p>
+
+            <h4 style="color: #800000; margin-top: 18px;">Nossa Senhora do Carmo</h4>
+            <p>Padroeira da Ordem do Carmo. É venerada por sua proteção especial e seu escapulário é usado por muitos
+                fiéis como sinal de devoção.</p>
+
+            <h3>Por Que Tantas Aparições e Manifestações de Nossa Senhora?</h3>
+
+            <p>Isso é uma pergunta muito importante. Na verdade, não são "várias Nossas Senhoras", mas sim <strong>a
+                    mesma Maria em diferentes manifestações</strong>, aparecendo em locais e épocas distintas conforme
+                as necessidades de cada comunidade.</p>
+
+            <h4 style="color: #800000; margin-top: 15px;">1. Proximidade com Todos os Povos</h4>
+            <p>Maria, como Mãe de Jesus e Mãe da Igreja, está presente em todos os lugares. As aparições mostram que ela
+                se importa com cada povo, cada cultura e cada comunidade. Ela se manifesta onde há pessoas que precisam
+                de ajuda espiritual.</p>
+
+            <h4 style="color: #800000; margin-top: 15px;">2. Mensagens Específicas para Cada Tempo</h4>
+            <p>Cada aparição traz uma mensagem apropriada para aquele momento histórico. Por exemplo:</p>
+            <ul>
+                <li><strong>Fátima (1917):</strong> Durante a 1ª Guerra Mundial, pedia conversão e oração pela paz</li>
+                <li><strong>Aparecida (1717):</strong> No Brasil colonial, mostrou que Maria estava com os brasileiros
+                </li>
+                <li><strong>Lourdes (1858):</strong> Época de dificuldades, trouxe esperança através de milagres de cura
+                </li>
+            </ul>
+
+            <h4 style="color: #800000; margin-top: 15px;">3. Diferentes Contextos Culturais</h4>
+            <p>Maria se adapta ao contexto de cada povo. Não muda sua essência, mas a forma como aparece e as mensagens
+                refletem a realidade local:</p>
+            <ul>
+                <li>No Brasil, apareceu como Nossa Senhora Aparecida para o povo indígena e escravizado</li>
+                <li>No México, apareceu a Santo Inácio (indígena) como Nossa Senhora de Guadalupe</li>
+                <li>Em Fátima, Portugal, veio com mensagens sobre a Europa</li>
+            </ul>
+
+            <h4 style="color: #800000; margin-top: 15px;">4. Invocações Especiais Conforme o Pedido</h4>
+            <p>Os fiéis invocam Nossa Senhora sob diferentes títulos conforme sua necessidade:</p>
+            <ul>
+                <li>Rezam para <strong>Nossa Senhora de Fátima</strong> pela paz e proteção</li>
+                <li>Rezam para <strong>Nossa Senhora de Lourdes</strong> por cura e milagres</li>
+                <li>Rezam para <strong>Nossa Senhora Aparecida</strong> pedindo bênção para o Brasil</li>
+                <li>Rezam para <strong>Nossa Senhora do Carmo</strong> pedindo proteção especial</li>
+            </ul>
+            <p>Mas todas as orações vão para a mesma Maria, que intercede por nós junto a Jesus e a Deus.</p>
+
+            <h4 style="color: #800000; margin-top: 15px;">5. Realidade Teológica</h4>
+            <p>A Igreja ensina que Maria é <strong>uma pessoa única</strong>, mas pode se manifestar em diferentes
+                tempos, lugares e formas. É como quando você fala com sua mãe: ela é sempre a mesma pessoa, mas estará
+                presente em diferentes momentos de sua vida, oferecendo apoio onde você mais precisa.</p>
+
+            <h4 style="color: #800000; margin-top: 15px;">6. Intercessão Contínua</h4>
+            <p>Maria está viva no céu junto a Deus e está sempre intercedendo pela humanidade. As aparições são sinais
+                visíveis dessa intercessão contínua. Ela não abandona seus filhos, está presente de muitas formas -
+                através de aparições, milagres e da presença espiritual em nossas vidas.</p>
+
+            <h3 style="margin-top: 30px;">Em Resumo</h3>
+            <p>As várias manifestações de Nossa Senhora não significam que existem "várias Marias". É a <strong>mesma
+                    Mãe de Jesus presente em todos os lugares e tempos</strong>, se comunicando com seus filhos de
+                maneiras que eles compreendem e necessitam, sempre trazendo mensagens de fé, esperança e conversão.</p>
+
+            <h3>Como a Igreja Trata as Aparições</h3>
+            <p>A Igreja Católica analisa cuidadosamente cada aparição. Nem todas são reconhecidas como autênticas. A
+                Igreja investiga se:
+            <ul>
+                <li>A aparição está de acordo com a fé católica</li>
+                <li>Há autênticas mudanças na vida espiritual das pessoas</li>
+                <li>Existem milagres verificados</li>
+                <li>O testemunho é digno de confiança</li>
+            </ul>
+            </p>
+        </section>
+
+        <section>
+            <h2>Doutrina e Ensinamentos</h2>
+            <div class="section-image">
+                <figure>
+                    <img src="igreja-catc3b3lica.jpg" alt="Igreja Católica">
+                    <figcaption>Doutrina e ensinamentos da Igreja</figcaption>
+                </figure>
+            </div>
+            <p>A doutrina da Igreja é o conjunto de ensinamentos que orientam a vida dos católicos.</p>
+
+            <h3>Ela inclui:</h3>
+            <ul>
+                <li>Os mandamentos</li>
+                <li>O amor ao próximo</li>
+                <li>A importância do perdão</li>
+                <li>A busca por uma vida santa</li>
+            </ul>
+
+            <p>A Igreja ensina como viver de acordo com a vontade de Deus.</p>
+        </section>
+
+        <section id="sacramentos">
+            <h2>Os 7 Sacramentos</h2>
+            <div class="section-image">
+                <figure>
+                    
+                    <figcaption>Celebração dos sacramentos na igreja</figcaption>
+                </figure>
+            </div>
+            <p>Os 7 Sacramentos são sinais sagrados instituídos por Jesus Cristo e confiados à Igreja Católica para transmitir a graça de Deus aos fiéis. Eles acompanham a vida do cristão desde o nascimento até os momentos finais, fortalecendo a fé, a comunhão com Deus e a vivência do Evangelho.</p>
+            
+            <h3>1. Batismo</h3>
+            <p><strong>O que é:</strong> O primeiro sacramento que torna alguém membro da Igreja Católica.</p>
+            <p><strong>Como funciona:</strong> A água é derramada na cabeça do batizando (ou ele é mergulhado em água) enquanto o padre/diácono reza em nome da Trindade (Pai, Filho e Espírito Santo).</p>
+            <p><strong>O que faz:</strong> Limpa do pecado original, abre as portas do céu e insere a pessoa na comunidade cristã.</p>
+            <p><strong>Quando:</strong> Normalmente feito logo após o nascimento, mas pode ser feito em qualquer idade.</p>
+            
+            <h3>2. Crisma</h3>
+            <p><strong>O que é:</strong> Sacramento que confirma a graça do batismo e fortalece o batizado na fé.</p>
+            <p><strong>Como funciona:</strong> O bispo (ou padre autorizado) unge a testa do crismado com óleo sagrado (crisma) enquanto invoca o Espírito Santo.</p>
+            <p><strong>O que faz:</strong> Batiza a pessoa no Espírito Santo, capacitando-a a ser testemunha de Cristo e soldado valente da fé.</p>
+            <p><strong>Quando:</strong> Normalmente feito entre 12 e 18 anos, ou em preparação para o matrimônio.</p>
+            
+            <h3>3. Eucaristia</h3>
+            <p><strong>O que é:</strong> O sacramento em que o pão e o vinho se tornam o Corpo e Sangue de Cristo (transsubstanciação).</p>
+            <p><strong>Como funciona:</strong> O padre, durante a Missa, pronuncia as palavras de Jesus: " Isto é o meu
+                corpo" e "Isto é o meu sangue" . Através do poder do Espírito Santo e pelas mãos do sacerdote, o pão e o
+                vinho são transformados.</p>
+                <p><strong>O que faz:</strong>
+                <ul>
+                    <li>Une o cristão a Cristo de forma mística</li>
+                    <li>Traz perdão dos pecados veniais (leves)</li>
+                    <li>Fortalece a alma e o espírito</li>
+                    <li>Alimenta espiritualmente o cristão</li>
+                    <li>Prepara para a vida eterna</li>
+                </ul>
+                </p>
+                <p><strong>Quando:</strong> Pode ser recebida frequentemente. Os católicos devem receber pelo menos uma
+                    vez por ano (na Páscoa). Primeira comunhão é normalmente aos 7 anos.</p>
+
+                <h3>4. Confissão (Reconciliação)</h3>
+                <p><strong>O que é:</strong> Sacramento onde o católico confessa seus pecados a um padre e recebe o
+                    perdão de Deus.</p>
+                <p><strong>Como funciona:</strong>
+                <ul>
+                    <li>O penitente entra no confessionário</li>
+                    <li>Começa com "Bênção" e diz quanto tempo faz da última confissão</li>
+                    <li>Confessa seus pecados com sinceridade</li>
+                    <li>O padre oferece conselho espiritual (penitência)</li>
+                    <li>O padre pronuncia a absolvição: "Seus pecados estão perdoados"</li>
+                </ul>
+                </p>
+                <p><strong>O que faz:</strong>
+                <ul>
+                    <li>Perdoa todos os pecados confessados com sinceridade</li>
+                    <li>Restaura a relação com Deus</li>
+                    <li>Traz paz de consciência</li>
+                    <li>Limpa da culpa e da vergonha</li>
+                </ul>
+                </p>
+                <p><strong>Quando:</strong> Antes de receber comunhão (se em pecado mortal). Os católicos devem
+                    confessar pelo menos uma vez por ano. Recomenda-se frequentemente.</p>
+
+                <h3>5. Matrimônio</h3>
+                <p><strong>O que é:</strong> Sacramento onde dois cristãos se unem diante de Deus e da Igreja em
+                    casamento.</p>
+                <p><strong>Como funciona:</strong> Os noivos se prometem fidelidade, amor e abertura aos filhos diante
+                    de Deus e da Igreja. O sacramento é administrado pelos próprios noivos um ao outro, com o padre como
+                    testemunha.</p>
+                <p><strong>O que faz:</strong>
+                <ul>
+                    <li>Sela o compromisso matrimonial</li>
+                    <li>Abençoa a vida dos esposos</li>
+                    <li>Possibilita uma família cristã</li>
+                    <li>Torna indissolúvel o vínculo (para vida toda)</li>
+                </ul>
+                </p>
+                <p><strong>Quando:</strong> Quando duas pessoas se amam e desejam passar a vida juntas.</p>
+
+                <h3>6. Ordem (Ordenação)</h3>
+                <p><strong>O que é:</strong> Sacramento através do qual um homem é ordenado padre ou diácono.</p>
+                <p><strong>Como funciona:</strong> O bispo impõe as mãos sobre o ordinando enquanto invoca o Espírito
+                    Santo. O homem recebe poderes sagrados para servir a Igreja.</p>
+                <p><strong>O que faz:</strong>
+                <ul>
+                    <li>Confere ao padre o poder de consagrar a Eucaristia</li>
+                    <li>Confere o poder de perdoar pecados</li>
+                    <li>Ordena ao diácono para servir a comunidade</li>
+                    <li>Marca permanentemente a alma (caráter indestrutível)</li>
+                </ul>
+                </p>
+                <p><strong>Quando:</strong> Quando um homem se sente chamado por Deus para o sacerdócio.</p>
+
+                <h3>7. Unção dos Enfermos</h3>
+                <p><strong>O que é:</strong> Sacramento de cura e conforto para os doentes graves ou idosos.</p>
+                <p><strong>Como funciona:</strong> O padre unge a testa e as mãos do enfermo com óleo sagrado enquanto
+                    reza pela cura e pelo conforto.</p>
+                <p><strong>O que faz:</strong>
+                <ul>
+                    <li>Traz conforto espiritual na doença</li>
+                    <li>Pode trazer cura física (se for vontade de Deus)</li>
+                    <li>Oferece força para suportar o sofrimento</li>
+                    <li>Prepara para a morte de forma digna (se necessário)</li>
+                    <li>Perdoa pecados quando a confissão não é possível</li>
+                </ul>
+                </p>
+                <p><strong>Quando:</strong> Quando alguém está em perigo de morte por doença, idade avançada ou
+                    acidente.</p>
+        </section>
+
+        <section id="liturgia">
+            <h2>A Eucaristia - O Corpo e Sangue de Cristo</h2>
+            <div class="section-image">
+                <figure>
+                    <img src="corpo e sangue de cristo.jpg" alt="Corpo e Sangue de Cristo">
+                    <figcaption>A Eucaristia - Corpo e Sangue de Cristo</figcaption>
+                </figure>
+            </div>
+            <h3>O Mistério da Eucaristia</h3>
+            <p>A Eucaristia é considerada o "coração" da vida cristã católica. É chamada de "O Santíssimo Sacramento".
+            </p>
+
+            <h3>O que Jesus disse sobre a Eucaristia</h3>
+            <p>Na Última Ceia, Jesus disse aos apóstolos: "Tomai e comei: isto é o meu corpo. Bebei todos: isto é o meu
+                sangue".</p>
+
+            <h3>Transsubstanciação - O Milagre da Eucaristia</h3>
+            <p>A Igreja ensina que, quando o padre pronuncia as palavras de Jesus ("Isto é o meu corpo"), ocorre um
+                milagre:</p>
+            <ul>
+                <li>A <strong>substância</strong> do pão muda para o Corpo de Cristo</li>
+                <li>A <strong>substância</strong> do vinho muda para o Sangue de Cristo</li>
+                <li>Os <strong>acidentes</strong> (aparência) continuam sendo pão e vinho</li>
+            </ul>
+            <p>Então, o que você come é realmente o Corpo de Cristo, não apenas simbolicamente, mas substancialmente.
+            </p>
+
+            <h3>Por Que os Católicos Veneram a Eucaristia?</h3>
+            <p>Porque é <strong>Jesus Cristo em pessoa</strong>. É por isso que:</p>
+            <ul>
+                <li>Se ajoelham quando a Eucaristia passa</li>
+                <li>Adoram o Santíssimo Sacramento</li>
+                <li>Tratam com reverência máxima</li>
+                <li>As hóstias consagradas são guardadas no sacrário (um cofre sagrado)</li>
+            </ul>
+
+            <h3>Os Efeitos Espirituais da Eucaristia</h3>
+            <ul>
+                <li><strong>União com Cristo:</strong> Você se une misteriosamente a Jesus</li>
+                <li><strong>Perdão de pecados:</strong> A Eucaristia perdoa pecados veniais (leves)</li>
+                <li><strong>Graça:</strong> Recebe força divina para viver melhor</li>
+                <li><strong>Vida eterna:</strong> Jesus promete: "Quem comer de meu corpo viverá eternamente"</li>
+            </ul>
+
+            <h3>Quem Pode Receber a Eucaristia?</h3>
+            <p>Para receber dignamente a Eucaristia, você deve:</p>
+            <ul>
+                <li>Ser batizado católico</li>
+                <li>Estar em estado de graça (sem pecado mortal)</li>
+                <li>Ter fé na presença real de Cristo</li>
+                <li>Estar em jejum (não ter comido ou bebido nada, exceto água, por 1 hora)</li>
+            </ul>
+            <p>Se você cometeu um pecado mortal, deve confessar antes de receber a Eucaristia.</p>
+        </section>
+
+        <section>
+            <h2>Confissão - O Sacramento da Reconciliação</h2>
+            <div class="section-image">
+                <figure></figure>
+                <img src="confessionario.jpg" alt="confessionário">
+                <figcaption>Confessionário na Igreja</figcaption>
+                </figure>
+            </div>
+            <h3>Por Que Confessar?</h3>
+            <p>Jesus disse aos apóstolos: "Recebei o Espírito Santo. Aqueles cujos pecados perdoardes, estão perdoados;
+                aqueles cujos pecados retiverdes, estão retidos".</p>
+            <p>A confissão é o sacramento onde Cristo perdoa nossos pecados através de seu ministro, o padre.</p>
+
+            <h3>Como Fazer uma Boa Confissão</h3>
+
+            <h4 style="color: #800000;">Passo 1: Preparação</h4>
+            <ul>
+                <li>Faça um exame de consciência (pense em seus pecados)</li>
+                <li>Peça ao Espírito Santo para lhe ajudar a lembrar</li>
+                <li>Sinta verdadeiro arrependimento</li>
+            </ul>
+
+            <h4 style="color: #800000;">Passo 2: Chegando ao Confessionário</h4>
+            <ul>
+                <li>Escolha um padre ou confessionário</li>
+                <li>Entre ou ajoelhe-se na grade do confessionário</li>
+            </ul>
+
+            <h4 style="color: #800000;">Passo 3: O Ato Penitencial</h4>
+            <p>Diga: "Bênção, Senhor, porque pequei" ou similar.</p>
+
+            <h4 style="color: #800000;">Passo 4: Confissão dos Pecados</h4>
+            <ul>
+                <li>Diga ao padre quanto tempo faz da última confissão ("Faz 3 meses que não confesso")</li>
+                <li>Confesse seus pecados de forma clara e sincera</li>
+                <li>Mencione quantas vezes cometeu cada pecado</li>
+                <li>Seja honesto - o padre está lá para ajudar, não para julgar</li>
+            </ul>
+
+            <h4 style="color: #800000;">Passo 5: Conselho e Penitência</h4>
+            <ul>
+                <li>O padre oferecerá conselho espiritual</li>
+                <li>Receberá uma penitência (normalmente rezas ou boas ações)</li>
+            </ul>
+
+            <h4 style="color: #800000;">Passo 6: Ato de Contrição</h4>
+            <p>Reze o Ato de Contrição (arrependimento).</p>
+
+            <h4 style="color: #800000;">Passo 7: Absolvição</h4>
+            <p>O padre dirá: "Deus Pai todo-poderoso tem compaixão de nós, e pelos méritos da Paixão de seu Filho nos
+                perdoa os pecados. Pela autoridade de nosso Senhor Jesus Cristo, que quis voltar à Igreja... eu vos
+                absolvo dos vossos pecados. Em nome do Pai, do Filho e do Espírito Santo."</p>
+
+            <h4 style="color: #800000;">Passo 8: Penitência</h4>
+            <p>Faça a penitência que foi dada (rezar determinadas orações ou fazer caridades).</p>
+
+            <h3>Tipos de Pecados</h3>
+
+            <h4 style="color: #800000;">Pecado Mortal</h4>
+            <p>É grave e afasta totalmente de Deus. Matam a alma espiritualmente. Exemplos: matar, roubar com intenção,
+                adultério, blasfêmia grave, recusar a fé.</p>
+            <p><strong>Consequência:</strong> Impede receber a Eucaristia até confessar.</p>
+
+            <h4 style="color: #800000;">Pecado Venial</h4>
+            <p>É leve, não mata a graça de Deus completamente, mas enfraquece a alma. Exemplos: mentira pequena,
+                desobediência leve, perda de paciência.</p>
+            <p><strong>Consequência:</strong> Enfraquece a fé, mas não impede comunhão.</p>
+
+            <h3>O Sigilo da Confissão</h3>
+            <p>O padre tem o dever absoluto de guardar sigilo sobre tudo que ouve na confissão. Nunca pode revelar os
+                pecados confessados, nem mesmo em perigo de morte. Este é um segredo sagrado.</p>
+        </section>
+
+        <section id="missa">
+            <h2>A Missa - A Celebração Central da Igreja</h2>
+            <div class="section-image">
+                <figure>
+
+                </figure>
+            </div>
+            <p>A Santa Missa é a celebração mais importante da Igreja Católica, pois nela os fiéis recordam e celebram o
+                sacrifício, a morte e a ressurreição de Jesus Cristo. É um momento de oração, comunhão e encontro com
+                Deus, onde a comunidade se reúne para ouvir a Palavra e participar da Eucaristia.
+
+            <p></p>A Missa é dividida em duas partes principais:<p></p>
+
+            <p></p>Liturgia da Palavra: leitura da Bíblia, salmo, Evangelho e reflexão;<p></p>
+            <p></p>Liturgia Eucarística: apresentação do pão e do vinho, consagração e comunhão.<p></p>
+
+            Durante a celebração, os cristãos fortalecem sua fé, agradecem pelas graças recebidas e renovam seu
+            compromisso de viver os ensinamentos de Cristo. A Missa também expressa união, fraternidade e participação
+            da comunidade na vida da Igreja.</p>
+
+            <h3>As Partes Principais da Missa</h3>
+
+            <h4 style="color: #800000;">1. Ritos Iniciais</h4>
+            <ul>
+                <li>Entrada (canto e procissão)</li>
+                <li>Sinal da Cruz</li>
+                <li>Saudação do padre</li>
+                <li>Confissão comunitária (todos confessam pecados brevemente)</li>
+                <li>Kyrie eleison (Senhor, tende piedade)</li>
+                <li>Glória (louvor a Deus)</li>
+                <li>Oração coletiva</li>
+            </ul>
+
+            <h4 style="color: #800000;">2. Liturgia da Palavra</h4>
+            <ul>
+                <li><strong>Primeira Leitura:</strong> Normalmente do Antigo Testamento</li>
+                <li><strong>Salmo:</strong> Todos respondem juntos</li>
+                <li><strong>Segunda Leitura:</strong> Do Novo Testamento (Epístolas)</li>
+                <li><strong>Evangelho:</strong> As palavras de Jesus (muito reverenciado)</li>
+                <li><strong>Homilia:</strong> O padre prega sobre as leituras</li>
+                <li><strong>Credo:</strong> Todos proclamam a fé</li>
+                <li><strong>Oração dos Fiéis:</strong> Petições da comunidade</li>
+            </ul>
+
+            <h4 style="color: #800000;">3. Liturgia Eucarística (O Núcleo da Missa)</h4>
+            <ul>
+                <li><strong>Preparação do Altar:</strong> Pão e vinho são colocados no altar</li>
+                <li><strong>Prefácio:</strong> Ação de graças solene</li>
+                <li><strong>Sanctus:</strong> "Santo, Santo, Santo" - louvor celeste</li>
+                <li><strong>Consagração:</strong> O padre pronuncia as palavras de Jesus sobre o pão e o vinho. AQUI
+                    OCORRE O MILAGRE - pão e vinho se tornam o Corpo e Sangue de Cristo</li>
+                <li><strong>Memorândum:</strong> Memória da Paixão, Morte e Ressurreição de Cristo</li>
+                <li><strong>Fração do Pão:</strong> O padre quebra a hóstia</li>
+                <li><strong>Comunhão:</strong> Todos recebem o Corpo de Cristo</li>
+            </ul>
+
+            <h4 style="color: #800000;">4. Ritos Finais</h4>
+            <ul>
+                <li>Oração pós-comunhão</li>
+                <li>Bênção do padre</li>
+                <li>Despedida ("Ide em paz")</li>
+                <li>Canto final</li>
+            </ul>
+
+            <h3>A Importância de Participar da Missa</h3>
+            <ul>
+                <li>Cumprir o mandamento de honrar o Senhor (Terceiro Mandamento)</li>
+                <li>Receber a graça de Deus através dos sacramentos</li>
+                <li>Estar em comunhão com a Igreja e outros fiéis</li>
+                <li>Fortalecer a fé e o espírito</li>
+                <li>Receber a Eucaristia, que é Cristo em pessoa</li>
+            </ul>
+
+            <h3>Obrigação de Ir à Missa</h3>
+            <p>Os católicos têm a obrigação de participar da Missa todos os domingos e dias de festa. Faltar sem motivo
+                grave é pecado.</p>
+        </section>
+
+        <section>
+            <h2>Orações</h2>
+            <div </div>
+                <p>As orações são uma forma de diálogo com Deus, um momento de fé, confiança e aproximação espiritual.
+                    Por meio da oração, os cristãos agradecem, pedem proteção, entregam suas dificuldades e fortalecem
+                    sua relação com Jesus Cristo e com a Igreja Católica.
+
+                    A oração pode ser feita individualmente ou em comunidade, em silêncio ou em voz alta, em qualquer
+                    lugar e momento. Ela ajuda a trazer paz ao coração, esperança diante das dificuldades e força para
+                    seguir os ensinamentos de Deus.</p>
+
+                <h3>Principais orações:</h3>
+                <ul>
+                    <li>Pai-Nosso</li>
+                    <li>Ave-Maria</li>
+                    <li>Glória ao Pai</li>
+                    <li>Credo</li>
+                    <li>Salve Rainha</li>
+                </ul>
+
+                <p>Rezar ajuda a fortalecer a fé e a manter uma relação com Deus.</p>
+        </section>
+
+        <section>
+            <h2>Dúvidas Comuns</h2>
+            <div class="section-image">
+                <figure>
+                    <figcaption>Momento de reflexão sobre dúvidas</figcaption>
+                </figure>
+            </div>
+            <div class="question">
+                <strong>Por que os católicos rezam para os santos?</strong>
+                <p>Porque acreditam que os santos estão junto de Deus e podem interceder por nós.</p>
+            </div>
+
+            <div class="question">
+                <strong>Por que ir à Missa?</strong>
+                <p>Porque é um encontro com Deus e com a comunidade.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Espírito Santo</h2>
+            <div class="section-image">
+                <figure>
+                    <img src="e.s.png" alt="Espírito Santo">
+                    <figcaption>Representação do Espírito Santo</figcaption>
+                </figure>
+            </div>
+            <p>O Espírito Santo é a terceira pessoa da Santíssima Trindade, que guia a Igreja e fortalece os cristãos.
+                Ele é a presença viva de Deus que inspira a oração, o amor e a missão.</p>
+            <p>Ele desceu sobre os apóstolos no dia de Pentecostes na forma de línguas de fogo, capacitando-os a
+                anunciar o Evangelho com coragem.</p>
+            <p>Os <b>7 dons do Espírito Santo</b> são graças especiais concedidas por Deus para fortalecer a fé, ajudar nas escolhas do dia a dia e conduzir os cristãos no caminho do bem. Esses dons são recebidos de maneira especial no sacramento da Crisma e ajudam a viver os ensinamentos de Jesus Cristo.</p>
+        <ol>
+            <li> <b>Sabedoria</b> – ajuda a valorizar as coisas de Deus acima das coisas do mundo.</li>
+            <li> <b>Entendimento</b> – permite compreender melhor a Palavra de Deus e a fé.</li>
+            <li> <b>Conselho</b> – ajuda a fazer escolhas corretas e agir com prudência.</li>
+            <li> <b>Fortaleza</b> – dá coragem para enfrentar dificuldades e permanecer firme na fé.</li>
+            <li> <b>Ciência</b> – ajuda a perceber a presença de Deus na criação e na vida.</li>
+            <li> <b>Piedade</b> – desperta amor, respeito e confiança em Deus e no próximo.</li>
+            <li> <b>Temor de Deus</b> – ensina a viver com humildade e a evitar o pecado por amor a Deus.</li>
+        </ol>
+
+        <p>Esses dons fortalecem a vida cristã e ajudam a viver guiado pelo Espírito Santo no dia a dia.</p>
+        </section> 
+
+
+
+        <section>
+            <h2>Hierarquia e Ministérios da Igreja</h2>
+            <h3>Ordem de Importância na Hierarquia</h3>
+
+            <h4 style="color: #800000; margin-top: 20px;">1. Papa</h4>
+            <p>É o líder supremo da Igreja Católica e Bispo de Roma. Sucede São Pedro e é considerado o representante de
+                Cristo na Terra. O Papa governa a Igreja, define a doutrina e é a autoridade máxima das decisões
+                religiosas.</p>
+
+            <h4 style="color: #800000; margin-top: 20px;">2. Cardeal</h4>
+            <p>São bispos escolhidos pelo Papa para posições de destaque. Os cardeais formam o Colégio Cardinalício e
+                são responsáveis por eleger o próximo Papa (Conclave).</p>
+
+            <h4 style="color: #800000; margin-top: 20px;">3. Arcebispo</h4>
+            <p>É um bispo de alta patente, responsável por uma grande região ou arquidiocese. Supervisiona vários bispos
+                e padres, coordena a fé em sua região e é um pastor principal das comunidades.</p>
+
+            <h4 style="color: #800000; margin-top: 20px;">4. Bispo</h4>
+            <p>Lidera uma diocese (região eclesiástica) e supervisiona os padres. O bispo tem a responsabilidade de
+                ensinar a fé, confirmar os fiéis (no sacramento da Crisma) e ordenar novos padres e diáconos. É um
+                sucessor dos apóstolos.</p>
+
+            <h4 style="color: #800000; margin-top: 20px;">5. Padre (Sacerdote)</h4>
+            <p><strong>O que é um Sacerdote:</strong> Um sacerdote é um homem ordenado pela Igreja para servir a Deus e
+                à comunidade. O padre é um ministro sagrado que recebe o sacramento da Ordem, que o capacita a realizar
+                os sacramentos.</p>
+            <p><strong>Funções do Padre:</strong></p>
+            <ul>
+                <li>Preside a Missa e consagra o pão e o vinho no corpo e sangue de Cristo</li>
+                <li>Ouve confissões e absolve os pecados</li>
+                <li>Batiza, realiza casamentos e extrema-unção</li>
+                <li>Orienta e aconselha a comunidade</li>
+                <li>Encaminha o povo na fé</li>
+            </ul>
+            <p><strong>Como virar Padre:</strong> Um homem deve ter vocação (chamado de Deus), passar por um seminário
+                (estudos teológicos de 4 a 6 anos), ser aprovado pela Igreja, e receber o sacramento da Ordem. Padres
+                fazem voto de celibato (não se casam) e prometem obediência à Igreja.</p>
+
+            <h4 style="color: #800000; margin-top: 20px;">6. Diácono</h4>
+            <p>É um ministro da Igreja que ajuda os padres. Pode ser permanente ou em caminho para ser padre. Anuncia o
+                Evangelho, distribui a Eucaristia e serve a comunidade em obras sociais.</p>
+        </section>
+
+        <section>
+            <h2>Vocações Religiosas: Freiras e Monges</h2>
+            <div class="section-image">
+                <figure>
+                    <img src="F e M.jpg" alt="Vida religiosa">
+                    <figcaption>Vida de dedicação religiosa</figcaption>
+                </figure>
+            </div>
+            <h4 style="color: #800000; margin-top: 20px;">O que é uma Freira (Religiosa)?</h4>
+            <p>Uma freira é uma mulher consagrada a Deus que faz votos religiosos (pobreza, castidade e obediência). Ela
+                vive em comunidade em um convento ou mosteiro, dedicando-se à oração, ao trabalho e ao serviço.</p>
+
+            <h4 style="color: #800000; margin-top: 20px;">Como Funciona a Vida de uma Freira:</h4>
+            <ul>
+                <li><strong>Votos:</strong> Faz três votos principais - pobreza (não possui bens próprios), castidade
+                    (não se casa) e obediência (obedece à superiora e à Igreja)</li>
+                <li><strong>Vida comunitária:</strong> Vive com outras freiras em convento ou mosteiro</li>
+                <li><strong>Oração:</strong> Grande parte do dia é dedicada à oração e contemplação</li>
+                <li><strong>Trabalho:</strong> Trabalha na comunidade, educação, saúde ou obras sociais</li>
+                <li><strong>Formação:</strong> Passa por anos de estudo espiritual antes de fazer votos perpétuos</li>
+            </ul>
+
+            <h4 style="color: #800000; margin-top: 20px;">Como Virar Freira:</h4>
+            <ul>
+                <li>Sentir vocação (chamado de Deus)</li>
+                <li>Entrar em contato com uma congregação religiosa (comunidade de freiras)</li>
+                <li>Passar pelo período de <strong>postulado</strong> (aproximadamente 6 meses a 1 ano) - conhecer a
+                    vida religiosa</li>
+                <li>Passar pelo período de <strong>noviciado</strong> (2 anos) - aprender a vida religiosa profundamente
+                </li>
+                <li>Fazer votos temporários (3 a 6 anos)</li>
+                <li>Fazer votos perpétuos (para toda a vida)</li>
+            </ul>
+
+            <h4 style="color: #800000; margin-top: 20px;">Tipos de Comunidades Religiosas:</h4>
+            <ul>
+                <li><strong>Contemplativas:</strong> Dedicadas principalmente à oração (vivem isoladas)</li>
+                <li><strong>Ativas:</strong> Trabalham em educação, saúde e missões (servem comunidades)</li>
+                <li><strong>Mistas:</strong> Combinam oração e trabalho</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Presbitério na Celebração Litúrgica</h2>
+            <div class="section-image">
+                <figure>
+                    <img src="Presbiterio com servidores de Deus.jpg" alt="Presbitério com servidores de Deus">
+
+                </figure>
+            </div>
+            <p>O presbitério é a parte da igreja, perto do altar, onde o padre celebra a missa. Geralmente é um pouco
+                mais alto que o restante e inclui o altar, o local das leituras e a cadeira do celebrante.
+                Abaixo estão os ministérios leigos (não ordenados) que ajudam na liturgia:</p>
+            <div class="presbiterio-list">
+                <div class="presbiterio-card">
+                    <strong>Padre</strong>
+                    <p>Preside a Missa, consagra a Eucaristia e distribui a comunhão.</p>
+                </div>
+                <div class="presbiterio-card">
+                    <strong>Diácono</strong>
+                    <p>Anuncia o Evangelho, ajuda o padre e serve a comunidade.</p>
+                </div>
+                <div class="presbiterio-card">
+                    <strong>Acólito</strong>
+                    <p>Prepara os objetos sagrados, acende velas e assiste o padre no altar.</p>
+                </div>
+                <div class="presbiterio-card">
+                    <strong>Leitor/Ministro</strong>
+                    <p>Lê as leituras da Bíblia e as intenções de oração durante a Missa.</p>
+                </div>
+                <div class="presbiterio-card">
+                    <strong>Coroinha</strong>
+                    <p>Auxilia nas celebrações, acende velas e ajuda a manter o ambiente sagrado.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Universo Católico. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
