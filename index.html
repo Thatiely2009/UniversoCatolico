@@ -35,17 +35,38 @@
             --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.15);
         }
 
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.7;
             color: var(--text-dark);
             background: linear-gradient(135deg, #f5f7fa 0%, #e8eef8 100%);
             min-height: 100vh;
+            overflow-x: hidden;
+            font-size: clamp(16px, 1.2vw, 18px);
+        }
+
+        img, video, iframe {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        a {
+            color: inherit;
         }
 
         /* HEADER STYLES */
         header {
-            min-height: 100vh;
+            min-height: 100svh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -102,6 +123,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
+            width: min(94vw, 900px);
             padding: 10px 14px;
             backdrop-filter: blur(12px);
             background: rgba(11, 31, 75, 0.24);
@@ -131,7 +153,7 @@
             position: relative;
             z-index: 3;
             width: min(1120px, 100%);
-            padding: 80px 24px;
+            padding: clamp(96px, 10vw, 140px) 24px 60px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -263,16 +285,17 @@
 
         /* CONTAINER */
         .container {
-            max-width: 1000px;
+            width: min(100%, 1000px);
             margin: 0 auto;
-            padding: 70px 20px;
+            padding: clamp(24px, 3vw, 40px) clamp(16px, 3vw, 24px);
         }
 
         /* SECTIONS */
         section {
+            width: min(100%, 1000px);
             background: var(--bg-white);
-            margin-bottom: 48px;
-            padding: 60px;
+            margin: 0 auto 48px;
+            padding: clamp(24px, 4vw, 60px);
             border-radius: 14px;
             box-shadow: var(--shadow-md);
             border-top: 4px solid var(--accent);
@@ -933,14 +956,6 @@
         }
 
         /* Mobile and tablet responsive improvements */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            overflow-x: hidden;
-        }
-
         .hero-nav {
             justify-content: center;
             gap: 10px;
@@ -988,6 +1003,67 @@
         .presbiterio-card,
         .section {
             word-wrap: break-word;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                background-attachment: scroll;
+            }
+
+            .hero-nav {
+                width: calc(100% - 24px);
+                border-radius: 24px;
+            }
+
+            .hero-content {
+                padding-top: 120px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-nav {
+                top: 12px;
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .hero-nav a {
+                flex-basis: calc(50% - 6px);
+                min-width: 0;
+                font-size: 0.8em;
+                padding: 8px 10px;
+            }
+
+            .hero-content {
+                padding: 120px 16px 40px;
+            }
+
+            .hero-title {
+                font-size: clamp(2.1rem, 8vw, 2.8rem);
+            }
+
+            .hero-subtitle {
+                padding: 18px 16px;
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .hero-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 20px;
+                margin-bottom: 24px;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .presbiterio-list {
+                grid-template-columns: 1fr;
+            }
         }
 
         @supports (scrollbar-color: auto) {
