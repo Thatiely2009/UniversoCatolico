@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore a fé católica por meio da Igreja, sacramentos, orações, santos, doutrina e tradição apostólica.">
+    <meta property="og:title" content="Universo Católico">
+    <meta property="og:description" content="Guia católico com conteúdos sobre Igreja, sacramentos, orações, santos e doutrina.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="http://127.0.0.1:8000/Universo%20cat%C3%B3lico.html">
     <title>Universo Católico</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +42,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 100px;
             font-size: 16px;
         }
 
@@ -62,6 +68,16 @@
 
         a {
             color: inherit;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.25);
         }
 
         /* HEADER STYLES */
@@ -1115,6 +1131,7 @@
         </div>
     </header>
 
+    <main>
     <!-- TOPICS SECTION -->
     <section class="topics-section">
         <div class="topics-container">
@@ -1187,7 +1204,7 @@
             <h2>O que é a Igreja Católica</h2>
             <div class="section-image">
                 <figure>
-                    <img src="interior, altar igreja catolica.jpg" alt="Interior do altar da Igreja Católica">
+                    <img loading="lazy" decoding="async" src="interior, altar igreja catolica.jpg" alt="Interior do altar de uma igreja católica iluminada">
                     <figcaption>A Igreja Católica em sua essência</figcaption>
                 </figure>
             </div>
@@ -1223,7 +1240,7 @@
             <h2>A Santíssima Trindade</h2>
                <div class="section-image">
                 <figure>
-                    <img src="Trindade santa.jpg" alt="Trindade santa">
+                    <img loading="lazy" decoding="async" src="Trindade santa.jpg" alt="Representação da Santíssima Trindade com Deus Pai, Jesus e o Espírito Santo">
                 </figure>
             </div>
             <p>A Trindade é um dos mistérios mais profundos da fé católica. Significa que Deus é <strong>Um em três
@@ -1309,6 +1326,26 @@
                 <li>No coração dos fiéis através do Espírito Santo</li>
                 <li>Na Palavra de Deus (Bíblia)</li>
             </ul>
+        </section>
+
+        <section id="tradicao">
+            <h2>Tradição Católica</h2>
+            <p>A Tradição Católica é o conjunto de ensinamentos, práticas, costumes e testemunhos de fé transmitidos pela Igreja ao longo dos séculos. Ela representa a continuidade da mensagem de Jesus Cristo, preservada e ensinada pela Igreja desde os tempos dos Apóstolos.</p>
+
+            <p>A fé católica é transmitida através da Sagrada Escritura e também da Tradição Apostólica, que conserva os ensinamentos recebidos pelos primeiros discípulos de Cristo e compartilhados pelas gerações seguintes de cristãos.</p>
+
+            <p>Ao longo da história, a Tradição Católica ajudou a Igreja a preservar sua identidade, aprofundar a compreensão da Palavra de Deus e orientar os fiéis na vivência da fé.</p>
+
+            <h3>Principais elementos da Tradição Católica</h3>
+            <ul>
+                <li><strong>A Tradição Apostólica:</strong> os ensinamentos transmitidos pelos Apóstolos e preservados pela Igreja desde os primeiros séculos do cristianismo.</li>
+                <li><strong>Os Padres da Igreja:</strong> importantes líderes e escritores cristãos dos primeiros séculos que contribuíram para a compreensão da fé.</li>
+                <li><strong>Os Concílios da Igreja:</strong> reuniões realizadas para refletir sobre questões importantes da doutrina e da vida cristã.</li>
+                <li><strong>A Liturgia e os Sacramentos:</strong> celebrações e práticas que expressam a fé católica e fortalecem a união dos fiéis com Deus.</li>
+                <li><strong>A vida dos Santos:</strong> exemplos de homens e mulheres que viveram o Evangelho e inspiram os cristãos na busca pela santidade.</li>
+            </ul>
+
+            <p>A Tradição Católica continua viva na Igreja atual, ajudando os fiéis a compreenderem melhor os ensinamentos de Cristo, valorizarem a história do cristianismo e permanecerem unidos à fé transmitida ao longo das gerações.</p>
         </section>
 
         <section id="catecismo">
@@ -1539,7 +1576,7 @@ Atualmente, a Igreja Católica está presente em praticamente todo o mundo, send
             <h2>Santa Rita de Cássia - Santa das Causas Impossíveis</h2>
             <div class="section-image">
                 <figure>
-                    <img src="Santa Rita de Cássia.jpg" alt="Santa Rita de Cássia">
+                    <img loading="lazy" decoding="async" src="Santa Rita de Cássia.jpg" alt="Imagem religiosa de Santa Rita de Cássia">
                     <figcaption>Santa Rita de Cássia, santa das causas impossíveis</figcaption>
                 </figure>
             </div>
@@ -1605,7 +1642,7 @@ Atualmente, a Igreja Católica está presente em praticamente todo o mundo, send
             <h2>Nossa Senhora – Mãe de Jesus</h2>
             <div class="section-image">
                 <figure>
-                    <img src="nossa-senhora.jpg" alt="Nossa Senhora Aparecida">
+                    <img loading="lazy" decoding="async" src="nossa-senhora.jpg" alt="Imagem de Nossa Senhora Aparecida com devoção popular">
                     <figcaption>Nossa Senhora Aparecida, padroeira do Brasil</figcaption>
                 </figure>
             </div>
@@ -1846,7 +1883,7 @@ Atualmente, a Igreja Católica está presente em praticamente todo o mundo, send
             <h2>A Eucaristia - O Corpo e Sangue de Cristo</h2>
             <div class="section-image">
                 <figure>
-                    <img src="corpo e sangue de cristo.jpg" alt="Corpo e Sangue de Cristo">
+                    <img loading="lazy" decoding="async" src="corpo e sangue de cristo.jpg" alt="Hóstia e cálice simbolizando o Corpo e Sangue de Cristo">
                     <figcaption>A Eucaristia - Corpo e Sangue de Cristo</figcaption>
                 </figure>
             </div>
@@ -1901,7 +1938,7 @@ Atualmente, a Igreja Católica está presente em praticamente todo o mundo, send
             <h2>Confissão - O Sacramento da Reconciliação</h2>
             <div class="section-image">
                 <figure></figure>
-                <img src="confessionario.jpg" alt="confessionário">
+                <img loading="lazy" decoding="async" src="confessionario.jpg" alt="Confessionário dentro de uma igreja católica">
                 <figcaption>Confessionário na Igreja</figcaption>
                 </figure>
             </div>
@@ -1972,11 +2009,7 @@ Atualmente, a Igreja Católica está presente em praticamente todo o mundo, send
 
         <section id="missa">
             <h2>A Missa - A Celebração Central da Igreja</h2>
-            <div class="section-image">
-                <figure>
-
-                </figure>
-            </div>
+            <div class="section-image" aria-hidden="true"></div>
             <p>A Santa Missa é a celebração mais importante da Igreja Católica, pois nela os fiéis recordam e celebram o
                 sacrifício, a morte e a ressurreição de Jesus Cristo. É um momento de oração, comunhão e encontro com
                 Deus, onde a comunidade se reúne para ouvir a Palavra e participar da Eucaristia.
@@ -2050,7 +2083,7 @@ Atualmente, a Igreja Católica está presente em praticamente todo o mundo, send
 
         <section>
             <h2>Orações</h2>
-            <div </div>
+            <div>
                 <p>As orações são uma forma de diálogo com Deus, um momento de fé, confiança e aproximação espiritual.
                     Por meio da oração, os cristãos agradecem, pedem proteção, entregam suas dificuldades e fortalecem
                     sua relação com Jesus Cristo e com a Igreja Católica.
@@ -2093,7 +2126,7 @@ Atualmente, a Igreja Católica está presente em praticamente todo o mundo, send
             <h2>Espírito Santo</h2>
             <div class="section-image">
                 <figure>
-                    <img src="e.s.png" alt="Espírito Santo">
+                    <img loading="lazy" decoding="async" src="e.s.png" alt="Símbolo representando o Espírito Santo">
                     <figcaption>Representação do Espírito Santo</figcaption>
                 </figure>
             </div>
@@ -2164,7 +2197,7 @@ Atualmente, a Igreja Católica está presente em praticamente todo o mundo, send
             <h2>Vocações Religiosas: Freiras e Monges</h2>
             <div class="section-image">
                 <figure>
-                    <img src="F e M.jpg" alt="Vida religiosa">
+                    <img loading="lazy" decoding="async" src="F e M.jpg" alt="Representação de vida religiosa com freiras e missionárias">
                     <figcaption>Vida de dedicação religiosa</figcaption>
                 </figure>
             </div>
@@ -2206,7 +2239,7 @@ Atualmente, a Igreja Católica está presente em praticamente todo o mundo, send
             <h2>Presbitério na Celebração Litúrgica</h2>
             <div class="section-image">
                 <figure>
-                    <img src="Presbiterio com servidores de Deus.jpg" alt="Presbitério com servidores de Deus">
+                    <img loading="lazy" decoding="async" src="Presbiterio com servidores de Deus.jpg" alt="Presbitério litúrgico com servidores da igreja durante a celebração">
 
                 </figure>
             </div>
@@ -2237,6 +2270,8 @@ Atualmente, a Igreja Católica está presente em praticamente todo o mundo, send
             </div>
         </section>
     </div>
+
+    </main>
 
     <footer>
         <p>&copy; 2026 Universo Católico. Todos os direitos reservados.</p>
